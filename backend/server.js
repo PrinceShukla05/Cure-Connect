@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
+import adminRouter from './routes/adminRoute';
 const database = require("./config/mongodb");
 const { cloudinaryConnect } = require("./config/cloudinary");
 
@@ -12,6 +13,8 @@ cloudinaryConnect();
 
 app.use(express.json());
 app.use(cors())
+
+app.use('/api/admin',adminRouter)
 
 // Testing the server
 app.get("/", (req, res) => {
