@@ -10,6 +10,7 @@ const Navbar = () => {
     const [token, setToken] = useState(true);
 
   return (
+
     <div className='flex flex-col items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400'>
         <img className='w-44 cursor-pointer' src={assets.logo} alt="" />
         <div className='flex w-full justify-between'>
