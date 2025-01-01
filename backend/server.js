@@ -6,7 +6,7 @@ const database = require("./config/mongodb");
 const { cloudinaryConnect } = require("./config/cloudinary");
 
 const app=express()
-const PORT = process.env.PORT || 3001;
+const PORT = 4000;//  || process.env.PORT
 database.connect();
 cloudinaryConnect();
 
