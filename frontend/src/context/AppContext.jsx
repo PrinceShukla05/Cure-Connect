@@ -1,18 +1,45 @@
-<<<<<<< HEAD
-import {create}
-=======
-import { createContext } from "react";
-import { doctors } from "../assets/assets_frontend/assets";
-
+import { createContext, useState } from "react";
+//import { doctors } from "../assets/assets_frontend/assets";
+import axios from 'axios'
+import { useEffect } from "react";
+import {toast} from 'react-toastify'
 
 export const AppContext = createContext()
 
 const AppContextProvider = (props) => {
 
+    const currencySymbol ='$'
+    const backendUrl = import.meta.env.VITE_BACKEND_URL
+    const [doctors,setDoctors]=useState([])
+    const [token,setToken] = useState('')
+
+
+    const getDoctorsData=async ()=>{
+        try {
+            const {data}= await axios.get(backendUrl+'/api/doctor/list')
+
+            if(data.success){
+                setDoctors(data.doctors)
+            }
+            else{
+                toast.error(data.message)
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error(error.message)
+        }
+    }
 
     const value = {
-        doctors
+        doctors,
+        currencySymbol,
+        token,setToken,
+        backendUrl
     }
+
+    useEffect(()=>{
+        getDoctorsData()
+    })
 
     return (
         <AppContext.Provider value={value}>
@@ -22,4 +49,3 @@ const AppContextProvider = (props) => {
 }
 
 export default AppContextProvider
->>>>>>> b2396c12ac80d0f9895a2ce90bd14e35f46ea7d4
