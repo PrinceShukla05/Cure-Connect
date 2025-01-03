@@ -7,6 +7,7 @@ const Appointment = () => {
 
   const {docId} = useParams()
   const {doctors, currencySymbol} = useContext(AppContext)
+  const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
 
   const [docInfo, setDocInfo] = useState(null)
   const [docSlots , setDocSlots] = useState([])
@@ -16,30 +17,29 @@ const Appointment = () => {
   const fetchDocInfo = async () => {
     const docInfo = doctors.find(doc => doc._id === docId)
     setDocInfo(docInfo)
-    // console.log(docInfo)
   }
 
   const getAvailableSlots = async () => {
     setDocSlots([])
     // getting current date
-    let today = new Date()
+    let today = new Date();
     for(let i=0;i<7;i++){
       // getting date with idx
       let currentDate = new Date(today)
-      currentDate.setDate(today .getDate()+i)
+      currentDate.setDate(today.getDate()+i)
 
       // settings and time of the date with indedx
       let endTime = new Date()
       endTime.setDate(today.getDate() + i)
-      endTime.setHours(21, 0, 0, 0)
+      endTime.setHours(21,0,0,0)
 
       // setting hours
       if(today.getDate() === currentDate.getDate()){
-        currentDate.setHours(currentDate.getHours() > 10 ? currentDate.getHours() +1:10)
+        currentDate.setHours(currentDate.getHours() > 10 ? currentDate.getHours()+1 : 10)
         currentDate.setMinutes(currentDate.getMinutes() > 30 ? 30 : 0)
       } else{
         currentDate.setHours(10)
-        currentDate.setMilliseconds(0)
+        currentDate.setMinutes(0)
       }
 
       let timeSlots = []
@@ -73,7 +73,7 @@ const Appointment = () => {
   }, [docSlots])
 
   return docInfo && (
-    <div>
+    <div className=''>
       <div className='flex flex-col sm:flex-row gap-4'>
         <img className='bg-primary w-full sm:max-w-72 rounded-lg' src={docInfo.image} alt="" />
       </div>
@@ -94,6 +94,19 @@ const Appointment = () => {
         </p>
       </div>
 
+      <div className='sm:ml-72 sm:pl-4 mt-4 font-medium text-gray-700'>
+          <p>Booking Slots</p>
+          <div className='flex gap-3 items-center w-full overflow-x-scroll mt-4'>
+            {
+              docSlots.length && docSlots.map((item, index)=>{
+                <div className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${slotIndex === index ? `bg-primary text-white` : `bg-white text-gray-600 border border-gray-500`} `} key={index}>
+                  <p>{item[0] && daysOfWeek[item[0].dateTime.getDay()]}</p>
+                  <p>{item[0] && item[0].dateTime.getDate()}</p>
+                </div>
+              })
+            }
+          </div>
+      </div>
 
     </div>
   )
