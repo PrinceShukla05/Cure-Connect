@@ -26,9 +26,10 @@ const MyProfile = () => {
       <img src={userData.image} alt="" />
 
       {
-        isEdit? <input type='text' onChange={e => setUserData(prev => ({...prev, name:e.target.value}))} />
+        isEdit
+        ? <input type='text' onChange={e => setUserData(prev => ({...prev, name:e.target.value}))} />
         : <div></div>
-}
+      }
 
 
     </div>

@@ -10,7 +10,7 @@ const About = () => {
       </div>
 
       <div className='my-10 flex flex-col md:flex-row gap-12'>
-        <img className='w-full md:max-w-[360px]' src={assets.about_image} alt="" />
+        <img className='border border-red-600 w-full md:max-w-[360px]' src={assets.about_image} alt="" />
         <div className='flex flex-col justify-center gap-6 md:w-2/4 text-sm text-gray-600'>
           <p>Cure Connect simplifies healthcare by connecting patients with trusted doctors and specialists. Schedule appointments, manage health records, and access care—all in one platform.</p>
           <p>Designed for convenience and reliability, Cure Connect ensures seamless communication between patients and providers, making healthcare accessible, transparent, and personalized.</p>
