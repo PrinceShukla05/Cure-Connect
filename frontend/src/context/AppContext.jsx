@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-//import { doctors } from "../assets/assets_frontend/assets";
 import axios from 'axios'
 import { useEffect } from "react";
 import {toast} from 'react-toastify'
@@ -7,7 +6,6 @@ import {toast} from 'react-toastify'
 // import {create}
 // =======
 import { createContext } from "react";
-// import { doctors } from "../assets/assets_frontend/assets";
 
 
 export const AppContext = createContext()

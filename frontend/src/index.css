@@ -16,6 +16,11 @@
     @apply hidden
 }
 
+.element {
+    scrollbar-width: none; /* Hides the scrollbar */
+    overflow: auto; /* Ensures content can still be scrolled */
+}
+
 .scroll{
     scrollbar-width: none;
 }
