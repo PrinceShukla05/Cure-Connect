@@ -16,6 +16,17 @@
     @apply hidden
 }
 
+.element {
+    scrollbar-width: none; /* Hides the scrollbar */
+    overflow: auto; /* Ensures content can still be scrolled */
+}
+
 .scroll{
     scrollbar-width: none;
+}
+
+@media (max-width:740px){
+    .active p{
+        @apply text-white bg-primary
+    }
 }
