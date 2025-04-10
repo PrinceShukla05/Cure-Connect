@@ -1,12 +1,12 @@
 import validator from 'validator'
 import bcrypt from 'bcrypt'
 import {v2 as cloudinary} from "cloudinary"
-import doctorModel from '../models/doctorModel'
+import doctorModel from '../models/doctorModel.js'
 import jwt from 'jsonwebtoken'
-import appointmentModel from '../models/appointmentModel'
-import userModel from '../models/userModel'
+import appointmentModel from '../models/appointmentModel.js'
+import userModel from '../models/userModel.js'
 //api for adding doctor
-exports.addDoctor=async (req,res)=>{
+const addDoctor=async (req,res)=>{
     try{
         const {name,email,password,speciality,degree,experience,about,fees,address}=req.body
         const imageFile=req.file
@@ -85,12 +85,28 @@ const loginAdmin=async(req,res)=>{
 
 const allDoctors=async (req,res)=>{
     try{
+        //it will remove the password property
         const doctors=await doctorModel.find({}).select('-password')
         res.json({success:true,doctors})
     }
     catch(error){
         console.log(error)
         res.json({success:false,message:error.message})
+    }
+}
+
+
+const changeAvailability =async (req , res)=>{
+    try {
+        const {docId} = req.body
+
+        const docData= await doctorModel.findById(docId)
+        await doctorModel.findByIdAndUpdate(docId,{available: !docData.available})
+        res.json({success:true,message:'Availability Changed'})
+
+    } catch (error) {
+        console.log(error)
+        res.json({success:false,message:error.mesagge})
     }
 }
 
@@ -150,4 +166,4 @@ const adminDashboard = async (req,res)=>{
     }
 }
 
-export {addDoctor,loginAdmin, allDoctors , appointmentsAdmin, appointmentCancel, adminDashboard}
+export {changeAvailability,addDoctor,loginAdmin, allDoctors , appointmentsAdmin, appointmentCancel, adminDashboard}

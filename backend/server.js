@@ -1,17 +1,21 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
-import adminRouter from './routes/adminRoute';
-const database = require("./config/mongodb");
-const { cloudinaryConnect } = require("./config/cloudinary");
-import doctorRouter from './routes/doctorRoute';
-import userRouter from './routes/userRoute';
+import connectDB from './config/mongodb.js'
+import connectCloudinary from './config/cloudinary.js'
+import adminRouter from './routes/adminRoute.js';
+// const database = require("./config/mongodb");
+// const { cloudinaryConnect } = require("./config/cloudinary");
+import doctorRouter from './routes/doctorRoute.js';
+import userRouter from './routes/userRoute.js';
 
 
 const app=express()
-const PORT = 4000;//  || process.env.PORT
-database.connect();
-cloudinaryConnect();
+const PORT = process.env.PORT || 4000
+connectDB()
+connectCloudinary()
+// database.connect();
+// cloudinaryConnect();
 
 
 app.use(express.json());

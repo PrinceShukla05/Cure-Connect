@@ -1,34 +1,21 @@
-import doctorModel from "../models/doctorModel"
+import doctorModel from "../models/doctorModel.js"
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import appointmentModel from "../models/appointmentModel"
+import appointmentModel from "../models/appointmentModel.js"
 
-const changeAvailability =async (req , res)=>{
-    try {
-        const {docId} = req.body
-
-        const docData= await doctorModel.findById(docId)
-        await doctorModel.findByIdAndUpdate(docId,{available: !docData.available})
-        res.json({success:true,message:'Availability Changed'})
-
-    } catch (error) {
-        console.log(error)
-        res.json({success:false,message:error.mesagge})
-    }
-}
-
+//yaha change availability waala hona chahiye tha ya nahi
 
 const doctorList =async (req,res)=>{
     try {
         const doctors = await doctorModel.find({}).select(['-password','-email'])
 
-        exports.json({success:true,doctors})
+        res.json({success:true,doctors})
     } catch (error) {
         console.log(error)
         res.json({success:false,message:error.mesagge})
     }
 }
-
+ 
 //api for doctor login
 
 const loginDoctor= async(req,res)=>{
@@ -76,7 +63,7 @@ const appointmentComplete= async(req,res)=>{
         const {docId,appointmentId} = req.body
         const appointmentData= await appointmentModel.findById(appointmentId)
         if(appointmentData && appointmentData.docId===docId){
-            await appointmentModel.findByIdAndUpdate(appointmentId,{isConpleted:true})
+            await appointmentModel.findByIdAndUpdate(appointmentId,{isCompleted:true})
             return res.json({success:true,message:'Appointment completed'})
         }
         else{
@@ -172,7 +159,7 @@ const updateDoctorProfile= async(req,res)=>{
     }
 }
 
-export {changeAvailability, doctorList , loginDoctor,
+export {doctorList , loginDoctor,
      appointmentsDoctor, appointmentComplete,
      appointmentCancel , doctorDashboard, doctorProfile,
     updateDoctorProfile }

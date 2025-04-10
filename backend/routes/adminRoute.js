@@ -1,10 +1,9 @@
 import express from 'express'
-
-import { addDoctor,allDoctors,appointmentsAdmin,loginAdmin ,appointmentCancel, adminDashboard} from '../controllers/adminController'
-import upload from '../middlewares/multer'
-import authAdmin from '../middlewares/authAdmin'
-import { changeAvailability } from '../controllers/doctorController'
-
+import authAdmin from '../middlewares/authAdmin.js'
+import { addDoctor,allDoctors,appointmentsAdmin,loginAdmin ,appointmentCancel, adminDashboard} from '../controllers/adminController.js'
+import upload from '../middlewares/multer.js'
+//import { changeAvailability } from '../controllers/doctorController.js'
+import { changeAvailability } from '../controllers/adminController.js'
 const adminRouter= express.Router()
 
 adminRouter.post('/add-doctor',authAdmin,upload.single('image'),addDoctor)
