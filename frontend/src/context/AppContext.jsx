@@ -2,15 +2,7 @@ import { createContext, useState } from "react";
 import axios from 'axios'
 import { useEffect } from "react";
 import {toast} from 'react-toastify'
-// <<<<<<< HEAD
-// import {create}
-// =======
-<<<<<<< HEAD
-//import { createContext } from "react";
-import { doctors } from "../assets/assets_frontend/assets";
-=======
-import { createContext } from "react";
->>>>>>> ba0caae0553f789aeeea36ce12a0a77d6aa62e5a
+//import { doctors } from "../assets/assets_frontend/assets";
 
 
 export const AppContext = createContext()
@@ -19,8 +11,9 @@ const AppContextProvider = (props) => {
 
     const currencySymbol ='$'
     const backendUrl = import.meta.env.VITE_BACKEND_URL
+    
     const [doctors,setDoctors]=useState([])
-    const [token,setToken] = useState(localStorage.getItem('token')?localStorage.getItem('token'):false)
+    const [token,setToken] = useState(localStorage.getItem('token')?localStorage.getItem('token'):'')
 
     const [userData,setUserData] = useState(false)
 
@@ -43,7 +36,7 @@ const AppContextProvider = (props) => {
     const loadUserProfileData = async () => {
         try {
             const {data} = await axios.get(backendUrl+'/api/user/get-profile',{headers:{token}})
-
+            console.log(data)
             if(data.success){
                 setUserData(data.userData)
             }
@@ -85,24 +78,5 @@ const AppContextProvider = (props) => {
     )
 }
 
-// import { createContext } from "react";
-// import { doctors } from "../assets/assets_frontend/assets";
-
-
-// export const AppContext = createContext()
-
-// const AppContextProvider = (props) => {
-
-//     const currencySymbol = '₹'
-
-//     const value = {
-//         doctors, currencySymbol
-//     }
-//     return (
-//         <AppContext.Provider value={value}>
-//             {props.children}
-//         </AppContext.Provider>
-//     )
-// }
-
-// export default AppContextProvider
+// Add this at the end:
+export default AppContextProvider;

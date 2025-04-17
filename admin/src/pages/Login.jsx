@@ -14,15 +14,18 @@ const Login = () => {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const {setAToken,backendUrl} =useContext(AdminContext)
-    const [setDToken] = useContext(DoctorContext)
+    const {setDToken} = useContext(DoctorContext)
 
     const onSubmitHandler =async (event)=>{
         event.preventDefault()
-        console.log("hello")
-
         try{
             if(state==='Admin'){
+                console.log("hello")
+                // console.log(email)
+                // console.log(password)
                 const {data} =await axios.post(backendUrl + '/api/admin/login',{email,password})
+                console.log(data)
+               // return
                 if(data.success){
                     //console.log(data.token)
                     localStorage.setItem('aToken',data.token)
@@ -46,7 +49,7 @@ const Login = () => {
             }
         }
         catch(error){
-
+            toast.error(error.message)
         }
     }
 
@@ -60,11 +63,11 @@ const Login = () => {
                 </p>
                 <div className='w-full'>
                     <p>Email</p>
-                    <input onChange={(e)=>setEmail(e.target.value)} className='border border-[#DADADA] rounded w-full p-2 mt-1' type="email" required/>
+                    <input onChange={(e)=>setEmail(e.target.value)} value={email} className='border border-[#DADADA] rounded w-full p-2 mt-1' type="email" required/>
                 </div>
                 <div className='w-full'>
                     <p>Password</p>
-                    <input onChange={(e)=>setPassword(e.target.value)} className='border border-[#DADADA] rounded w-full p-2 mt-1' type="password" required/>
+                    <input onChange={(e)=>setPassword(e.target.value)} value={password} className='border border-[#DADADA] rounded w-full p-2 mt-1' type="password" required/>
                 </div>
                 <button className='bg-primary text-white w-full py-2 rounded-md text-base'>Login</button>
                 {

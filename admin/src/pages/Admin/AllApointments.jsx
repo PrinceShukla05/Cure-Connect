@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { AppContext } from '../../context/AppContext'
 import { assets } from '../../../../frontend/src/assets/assets_frontend/assets'
 
-const AllApointments = () => {
+const AllAppointments = () => {
 
   const {aToken, appointments, getAllAppointments ,cancelAppointment} = useContext(AdminContext)
   const {calculateAge , slotDateFormat , currencySymbol}= useContext(AppContext)
@@ -46,9 +46,9 @@ const AllApointments = () => {
               <p>{currencySymbol}{item.amount}</p>
               {item.cancelled
               ?<p className='text-red-400 text-xs font-medium'>Cancelled</p>
-            : item.isCompleted
-            ? <p className='text-green-500 text-xs font-medium'>Completed</p>
-            : <img onClick={()=>cancelAppointment(item._id)} className='w-10 cursor-pointer' src={assets.chats_icon} alt="" />
+              : item.isCompleted
+              ? <p className='text-green-500 text-xs font-medium'>Completed</p>
+              : <img onClick={()=>cancelAppointment(item._id)} className='w-10 cursor-pointer' src={assets.cross_icon} alt="" />
             }
             </div>
           ))
@@ -58,4 +58,4 @@ const AllApointments = () => {
   )
 }
 
-export default AllApointments
+export default AllAppointments

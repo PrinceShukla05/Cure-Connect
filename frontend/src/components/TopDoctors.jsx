@@ -7,6 +7,7 @@ import { AppContext } from '../context/AppContext'
     const navigate = useNavigate()
     const {doctors} = useContext(AppContext)
 
+    
   return (
     <div className='flex flex-col item-center gap-4 my-16 text-gray-900 md:mx-10'>
         <h1 className='text-3xl self-center font-medium'>Top Doctors to Book</h1>

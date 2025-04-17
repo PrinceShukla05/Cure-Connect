@@ -3,11 +3,13 @@ import { useContext } from 'react'
 import { DoctorContext } from '../../context/DoctorContext'
 import { AppContext } from '../../context/AppContext'
 import { useEffect } from 'react'
+import axios from 'axios'
+import { useState } from 'react'
 
 const DoctorProfile = () => {
 
-    const {dToken, profileData, setProfileData, getProfileData} = useContext(DoctorContext)
-    const { currencySymbol, backendUrl} = useContext(AppContext)
+    const {dToken, profileData, setProfileData, getProfileData, backendUrl} = useContext(DoctorContext)
+    const { currencySymbol} = useContext(AppContext)
     const [isEdit,setIsEdit] = useState(false)
 
     const updateProfile = async()=>{
@@ -33,6 +35,10 @@ const DoctorProfile = () => {
             toast.error(error.message)
         }
     }
+
+    // useEffect(()=>{
+    //     console.log(dToken)
+    // })
 
 
     useEffect(()=>{

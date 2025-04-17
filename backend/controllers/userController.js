@@ -24,6 +24,11 @@ const registerUser = async(req , res)=>{
         if(password.length<8){
             return res.json({success:false,message:"enter a strong password"})
         }
+        const existingUser = await userModel.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ success: false, message: "User already exists" });
+        }
+
 
         // hashing user password
         const salt =await bcrypt.genSalt(10)
@@ -46,7 +51,7 @@ const registerUser = async(req , res)=>{
 
     } catch (error) {
         console.log(error)
-        res.json({success:true,message:error.message})
+        res.json({success:false,message:error.message})
     }
 }
 
@@ -129,7 +134,11 @@ const updateProfile = async (req,res)=>{
 
 const bookAppointment =async (req,res)=>{
     try {
-        const {userId,docId,slotDate,slotTime}=req.body
+        const {userId,docId,slotDate,timee}=req.body
+        const slotTime=timee
+        // console.log(slotTime)
+        // console.log(slotDate)
+        //console.log("HELLO")
         const docData = await doctorModel.findById(docId).select('-password')
         // it have removed the password property from the doctor
 
@@ -138,6 +147,8 @@ const bookAppointment =async (req,res)=>{
         }
 
         let slots_booked = docData.slots_booked
+        // console.log("HELLO")
+        // console.log(slots_booked[slotDate])
 
         if(slots_booked[slotDate]){
             if(slots_booked[slotDate].includes(slotTime)){
@@ -148,9 +159,11 @@ const bookAppointment =async (req,res)=>{
             }
         }
         else{
+            //console.log("else")
             slots_booked[slotDate]=[]
             slots_booked[slotDate].push(slotTime)
         }
+        //console.log(slots_booked)
 
         const userData = await userModel.findById(userId).select('-password')
 
@@ -163,7 +176,7 @@ const bookAppointment =async (req,res)=>{
             amount: docData.fees,
             slotTime,
             slotDate,
-            data: Date.now()
+            date: Date.now()
         }
 
         const newAppointment = new appointmentModel(appointmentData)
@@ -210,10 +223,13 @@ const cancelAppointment = async ( req,res)=>{
         await appointmentModel.findByIdAndUpdate(appointmentId,{cancelled:true})
 
         //releasing doctor slot
-
+        //console.log(appointmentData)
         const {docId,slotDate,slotTime} = appointmentData
+        // console.log(slotTime)
+        // console.log(slotDate)
 
         const doctorData= await doctorModel.findById(docId)
+        console.log(doctorData)
 
         let slots_booked= doctorData.slots_booked
 

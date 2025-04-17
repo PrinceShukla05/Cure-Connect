@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-
-/*
-<div className={`flex items-center gap-2 text-sm text-center ${item.available ? 'text-green-500' : 'text-red-500'}`}>
-  <p className={`w-2 h-2 ${item.available ? 'bg-green-500' : 'bg-red-500'} rounded-full`}></p><p>{item.available ? 'Available' : 'Not Available'}</p>
-</div>
-*/
-const RelatedDoctors = () => {
-  return (
-    <div>RelatedDoctors</div>
-  )
-}
-
-=======
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom'
@@ -42,8 +26,8 @@ const RelatedDoctors = ({docId, speciality}) => {
                 <div key={index} onClick={()=>{navigate(`/appointment/${item._id}`); scrollTo(0,0)}} className='self-center border border-red-400 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500 '>
                     <img className='bg-red-100 hover:bg-red-300 transition-all duration-300' src={item.image} alt="" />
                     <div className='p-4'>
-                        <div className='flex items-center gap-2 text-sm text-center text-green-500'>
-                            <p className='w-2 h-2 bg-green-500 rounded-full'></p><p>Available</p>
+                        <div className={`flex items-center gap-2 text-sm text-center ${item.available ? 'text-green-500' : 'text-red-500'}`}>
+                            <p className={`w-2 h-2 ${item.available ? 'bg-green-500' : 'bg-red-500' } rounded-full`}></p><p>{item.available ? 'Available' : 'Not Available'}</p>
                         </div>
                         <p className='text-gray-900 text-lg font-medium'>{item.name}</p>
                         <p className='text-gray-600 text-sm'>{item.speciality}</p>
@@ -56,5 +40,4 @@ const RelatedDoctors = ({docId, speciality}) => {
   )
 }
 
->>>>>>> ba0caae0553f789aeeea36ce12a0a77d6aa62e5a
 export default RelatedDoctors

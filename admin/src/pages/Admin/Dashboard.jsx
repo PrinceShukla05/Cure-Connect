@@ -2,7 +2,8 @@ import React from 'react'
 import { useContext } from 'react'
 import { AdminContext } from '../../context/AdminContext'
 import { useEffect } from 'react'
-import { assets } from '../../assets'
+import { assets } from '../../assets/assets'
+//import { assets } from '../../assets'
 import { AppContext } from '../../context/AppContext'
 
 const Dashboard = () => {
@@ -42,8 +43,6 @@ const Dashboard = () => {
             <p className='text-gray-400'>Patients</p>
           </div>
         </div>
-
-
       </div>
 
       <div className='bg-white'>
@@ -54,7 +53,7 @@ const Dashboard = () => {
 
         <div className='pt-4 border border-t-0'>
           {
-            dashData.latestAppointment.map((item, index) => (
+            dashData.latestAppointments.map((item, index) => (
               <div className='flex items-center px-6 py-3 gap-3 hover:bg-gray-100' key={index}>
                 <img className='rounded-full w-10' src={item.docData.image} alt="" />
                 <div className='flex-1 text-sm'>
