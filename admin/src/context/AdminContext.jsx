@@ -15,14 +15,26 @@ const AdminContextProvider= (props)=>{
     const backendUrl = import.meta.env.VITE_BACKEND_URL
 
     const getAllDoctors =async()=>{
+        if (!aToken) {
+            toast.error('Session expired. Please login again.');
+            setAToken('');
+            localStorage.removeItem('aToken');
+            return;
+        }
         try{
-            const {data}=await axios.post(backendUrl + '/api/admin/all-doctors',{},{headers:{aToken}})
+            const {data}=await axios.post(backendUrl + '/api/admin/all-doctors',{},{headers:{atoken: aToken}})
             if(data.success){
                 setDoctors(data.doctors)
                 console.log(data.doctors)
             }
             else{
-                toast.error(data.message)
+                if (data.message && data.message.toLowerCase().includes('not authorized')) {
+                    toast.error('Session expired. Please login again.');
+                    setAToken('');
+                    localStorage.removeItem('aToken');
+                } else {
+                    toast.error(data.message)
+                }
             }
         }
         catch(error){
@@ -31,14 +43,26 @@ const AdminContextProvider= (props)=>{
     }
 
     const changeAvailability = async (docId)=> {
+        if (!aToken) {
+            toast.error('Session expired. Please login again.');
+            setAToken('');
+            localStorage.removeItem('aToken');
+            return;
+        }
         try {
-            const {data} =await axios.post(backendUrl + '/api/admin/change-availability', {docId} ,{headers:{aToken}})
+            const {data} =await axios.post(backendUrl + '/api/admin/change-availability', {docId} ,{headers:{atoken: aToken}})
             if(data.success){
                 toast.success(data.message)
                 getAllDoctors()
             }
             else{
-                toast.error(data.message)
+                if (data.message && data.message.toLowerCase().includes('not authorized')) {
+                    toast.error('Session expired. Please login again.');
+                    setAToken('');
+                    localStorage.removeItem('aToken');
+                } else {
+                    toast.error(data.message)
+                }
             }
         } catch (error) {
             toast.error(error.message)
@@ -46,14 +70,26 @@ const AdminContextProvider= (props)=>{
     }
 
     const getAllAppointments = async()=>{
+        if (!aToken) {
+            toast.error('Session expired. Please login again.');
+            setAToken('');
+            localStorage.removeItem('aToken');
+            return;
+        }
         try {
-            const {data}= await axios.get(backendUrl+'/api/admin/appointments',{headers:{aToken}})
+            const {data}= await axios.get(backendUrl+'/api/admin/appointments',{headers:{atoken: aToken}})
             if(data.success){
                 setAppointments(data.appointments)
                 console.log(data.appointments)
             }
             else{
-                toast.success(data.message)
+                if (data.message && data.message.toLowerCase().includes('not authorized')) {
+                    toast.error('Session expired. Please login again.');
+                    setAToken('');
+                    localStorage.removeItem('aToken');
+                } else {
+                    toast.success(data.message)
+                }
             }
         } catch (error) {
             toast.error(error.message)
@@ -61,14 +97,26 @@ const AdminContextProvider= (props)=>{
     }
 
     const cancelAppointment = async(appointmentId)=>{
+        if (!aToken) {
+            toast.error('Session expired. Please login again.');
+            setAToken('');
+            localStorage.removeItem('aToken');
+            return;
+        }
         try {
-            const {data}= await axios.post(backendUrl+'/api/admin/cancel-appointment',{appointmentId},{headers:{aToken}})
+            const {data}= await axios.post(backendUrl+'/api/admin/cancel-appointment',{appointmentId},{headers:{atoken: aToken}})
             if(data.success){
                 toast.success(data.message)
                 getAllAppointments()
             }
             else{
-                toast.error(data.message)
+                if (data.message && data.message.toLowerCase().includes('not authorized')) {
+                    toast.error('Session expired. Please login again.');
+                    setAToken('');
+                    localStorage.removeItem('aToken');
+                } else {
+                    toast.error(data.message)
+                }
             }
 
         } catch (error) {
@@ -77,13 +125,25 @@ const AdminContextProvider= (props)=>{
     }
 
     const getDashData= async()=>{
+        if (!aToken) {
+            toast.error('Session expired. Please login again.');
+            setAToken('');
+            localStorage.removeItem('aToken');
+            return;
+        }
         try {
-            const {data}= await axios.get(backendUrl+'/api/admin/dashboard',{headers:{aToken}})
+            const {data}= await axios.get(backendUrl+'/api/admin/dashboard',{headers:{atoken: aToken}})
             if(data.success){
                 setDashData(data.dashData)
             }
             else{
-                toast.error(data.message)
+                if (data.message && data.message.toLowerCase().includes('not authorized')) {
+                    toast.error('Session expired. Please login again.');
+                    setAToken('');
+                    localStorage.removeItem('aToken');
+                } else {
+                    toast.error(data.message)
+                }
             }
         } catch (error) {
             toast.error(error.message)

@@ -12,7 +12,9 @@ const Footer = () => {
 
             <div>
                 <img className='mb-5 w-40' src={assets.logo} alt="" />
-                <p className='w-full md:w-2/3 text-gray-600 leading-6'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dignissimos repellendus, rem aspernatur accusamus sapiente ab ut voluptate ipsam, reiciendis officiis suscipit ipsa unde molestias cum iusto dolorem facere.</p>
+                <p className='w-full md:w-2/3 text-gray-600 leading-6'>
+                    CureConnect is a medical appointment website that connects patients with trusted doctors. Our platform allows users to easily book appointments, access medical information, and receive personalized care from healthcare professionals.
+                </p>
             </div>
 
             <div>
