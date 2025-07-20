@@ -28,8 +28,8 @@ Here's a demo video showing the functionality of the Civic Engagement Portal:
 ---
 
 ### Preview Image
-![image](<img width="1246" height="526" alt="image" src="https://github.com/user-attachments/assets/c3471c6a-424a-4fab-84b2-dd9b62df7c19" />
-)
+<img width="1271" height="465" alt="image" src="https://github.com/user-attachments/assets/ef64ac5b-f67e-4ec0-a924-1a9e577b27ee" />
+
 ![image](<img width="1533" height="838" alt="image" src="https://github.com/user-attachments/assets/a138615c-21d7-4955-af3a-7902c7f81f9a" />
 )
 ![image](<img width="1635" height="820" alt="image" src="https://github.com/user-attachments/assets/b6f40c80-c97d-4696-ae39-008560a32656" />
@@ -106,9 +106,9 @@ backend: Create a .env file in the backend directory and add your MongoDB URI an
    cd frontend
    npm run dev
 3. Admin
-```bash
-   cd frontend
-   npm run dev
+   ```bash
+      cd frontend
+      npm run dev
 
 ## Contributing
 If you'd like to contribute to this project, feel free to fork the repository, create a feature branch, and submit a pull request.
