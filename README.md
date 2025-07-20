@@ -1,141 +1,118 @@
-CureConnect – Medical Appointment Booking Website
+# CureConnect
 
+## Overview
 CureConnect is a medical appointment booking web application designed to simplify healthcare by connecting patients and doctors through a seamless virtual platform. The project streamlines appointment scheduling, remote consultations, and medication access, ensuring efficient and timely healthcare delivery
 
-.
-Table of Contents
+### Features:
 
-    Features
 
-    Tech Stack
+-**Virtual Appointments**: Book and manage secure online appointments with healthcare professionals.
 
-    Getting Started
+-**Doctor Profiles**: Browse and filter doctors by specialty and location, and view detailed profiles.
 
-    Project Structure
+-**Admin Approval System**: Doctors join only with admin verification to maintain professional integrity.
 
-    Usage
+-**Comprehensive Dashboards**: Patients and doctors have dedicated dashboards for appointments, medical histories, and notifications.
 
-    Future Enhancements
+---
 
-    Contributing
+## Demo
 
-    License
+### Video Demonstration
+Here's a demo video showing the functionality of the Civic Engagement Portal:
 
-Features
+[![Watch the video](<img width="1604" height="838" alt="image" src="https://github.com/user-attachments/assets/cefa3abe-dc8e-4981-88f0-429800fbc434" />
+)](https://drive.google.com/file/d/1myPL3z8fu4DhwnI7TTjDNkK58fcyXx5w/view?usp=sharing)
 
-    Virtual Appointments: Book and manage secure online appointments with healthcare professionals.
 
-    Doctor Profiles: Browse and filter doctors by specialty and location, and view detailed profiles.
+---
 
-    Admin Approval System: Doctors join only with admin verification to maintain professional integrity.
+### Preview Image
+![image](<img width="1246" height="526" alt="image" src="https://github.com/user-attachments/assets/c3471c6a-424a-4fab-84b2-dd9b62df7c19" />
+)
+![image](<img width="1533" height="838" alt="image" src="https://github.com/user-attachments/assets/a138615c-21d7-4955-af3a-7902c7f81f9a" />
+)
+![image](<img width="1635" height="820" alt="image" src="https://github.com/user-attachments/assets/b6f40c80-c97d-4696-ae39-008560a32656" />
+)
+![image](<img width="1622" height="848" alt="image" src="https://github.com/user-attachments/assets/2c99bf18-edd8-4f07-a974-200f65ef09de" />
+)
+![image](<img width="636" height="773" alt="image" src="https://github.com/user-attachments/assets/d8687cd2-d272-4e9b-a78e-17cc81e7b272" />
+)
 
-    Comprehensive Dashboards: Patients and doctors have dedicated dashboards for appointments, medical histories, and notifications.
 
-    Medication Orders: Integrated option for ordering prescription medications online (if enabled).
+---
 
-    Notifications: Automated reminders to reduce no-shows and facilitate communication.
+## Technologies Used:
+- **Frontend**: React, JavaScript, React-Router, TailwindCSS, ContextAPI
+- **Backend**: Node.js, Express, Axios, Cors
+- **Database**: MongoDB
+- **Authentication**: JWT Token-based Authentication
+- **API**: RESTful API routes
 
-    Role-Based Access: Separate panels and permissions for Admins, Doctors, and Patients.
+---
 
-    Responsive UI: Fully mobile-friendly design for accessibility on all devices.
+## Installation & Setup
 
-Tech Stack
-Layer	Technology
-Frontend	React.js, Tailwind CSS
-Backend	Node.js, Express.js
-Database	MongoDB
-Auth	Context API, JWT
-Deployment	Vercel (Frontend),
-	MongoDB Atlas, Cloudinary (for media)
-Getting Started
-Prerequisites
+### Prerequisites:
+- Node.js
+- MongoDB (or MongoDB Atlas)
+- npm or yarn
 
-    Node.js
-
-    npm or yarn
-
-    MongoDB instance (local or MongoDB Atlas)
-
-    Git
-
-Installation
-
-bash
+### 1. Clone the repository:
+```bash
 git clone https://github.com/Omsh24/CureConnect-A-medical-appointment-website.git
-cd CureConnect-A-medical-appointment-website
-npm install
 
-Set up your .env file in the root directory with:
+```
+### 2. Install dependencies
+1. Backend
+   ```bash
+   cd backend
+   npm install
+   ```
+2. Frontend
+   ```bash
+   cd frontend
+   npm install
+   ```
+3. Admin
+   ```bash
+   cd admin
+   npm install
+   
+### 3. Configuration
+backend: Create a .env file in the backend directory and add your MongoDB URI and any necessary environment variables.
+**Sample env file:**
+- MONGODB_URI= 
+- CLOUDINARY_NAME=
+- CLOUDINARY_API_KEY=
+- CLOUDINARY_SECRET_KEY=
+- ADMIN_EMAIL=
+- ADMIN_PASSWORD=
+- JWT_SECRET=
+- RAZORPAY_KEY_ID=
+- RAZORPAY_KEY_SECRET=
+- CURRENCY="INR"
+- CORS=*
+- PORT=8000
 
-text
-MONGO_URI=your_mongodb_connection_string
-PORT=your_preferred_port
-JWT_SECRET=your_jwt_secret
-CLOUDINARY_URL=your_cloudinary_url (if used)
+### 4. Run the project
+1. Backend
+   ```bash
+   cd backend
+   npm start
+   ```
+2. Frontend
+   ```bash
+   cd frontend
+   npm run dev
+3. Admin
+```bash
+   cd frontend
+   npm run dev
 
-Running the App
+## Contributing
+If you'd like to contribute to this project, feel free to fork the repository, create a feature branch, and submit a pull request.
 
-bash
-npm start
-
-Access the frontend (deployed version):
-https://appointment-application-nu.vercel.app/
-Project Structure
-
-text
-CureConnect-A-medical-appointment-website/
-  ├── client/           # React frontend
-  ├── server/           # Node.js/Express backend
-  ├── README.md
-  ├── .env
-  └── package.json
-
-Usage
-
-    Patient Registration:
-
-        Sign up and log in as a patient.
-
-        Browse doctors and book appointments based on specialty, location, and availability.
-
-    Doctor Registration:
-
-        Register and await admin approval.
-
-        Set availability and manage appointments via the dashboard.
-
-    Admin Panel:
-
-        Verify doctor registrations.
-
-        Manage platform users, appointments, and system settings.
-
-    Appointment Management:
-
-        View upcoming and past appointments.
-
-        Receive notifications and reminders for booked appointments.
-
-Future Enhancements
-
-    Payment gateway integration for appointment fees.
-
-    Reviews and rating system for doctors.
-
-    Advanced search and filter capabilities.
-
-    Telemedicine/video call functionality.
-
-    Health record and prescription management
-
-    .
-
-Contributing
-
-Contributions are welcome! Please open issues or submit pull requests for bug fixes, new features, or improvements.
-License
-
-Distributed under the MIT License.
-See LICENSE for more information.
-
-This project aims to improve access to healthcare and create a bridge between patients and medical professionals through technology. For questions or support, please open an issue in the repository.
+## Contact
+- Om Shukla: omshukla2403@gmail.com
+- Arshad Ali: 969673arshadali@gmail.com
