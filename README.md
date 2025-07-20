@@ -21,24 +21,20 @@ CureConnect is a medical appointment booking web application designed to simplif
 ### Video Demonstration
 Here's a demo video showing the functionality of the Civic Engagement Portal:
 
-[![Watch the video](<img width="1604" height="838" alt="image" src="https://github.com/user-attachments/assets/cefa3abe-dc8e-4981-88f0-429800fbc434" />
-)](https://drive.google.com/file/d/1myPL3z8fu4DhwnI7TTjDNkK58fcyXx5w/view?usp=sharing)
+<a href="https://drive.google.com/file/d/1myPL3z8fu4DhwnI7TTjDNkK58fcyXx5w/view?usp=sharing">
+  <img src="https://github.com/user-attachments/assets/cefa3abe-dc8e-4981-88f0-429800fbc434" width="500"/>
+</a>
+
 
 
 ---
 
 ### Preview Image
 <img width="1271" height="465" alt="image" src="https://github.com/user-attachments/assets/ef64ac5b-f67e-4ec0-a924-1a9e577b27ee" />
-
-![image](<img width="1533" height="838" alt="image" src="https://github.com/user-attachments/assets/a138615c-21d7-4955-af3a-7902c7f81f9a" />
-)
-![image](<img width="1635" height="820" alt="image" src="https://github.com/user-attachments/assets/b6f40c80-c97d-4696-ae39-008560a32656" />
-)
-![image](<img width="1622" height="848" alt="image" src="https://github.com/user-attachments/assets/2c99bf18-edd8-4f07-a974-200f65ef09de" />
-)
-![image](<img width="636" height="773" alt="image" src="https://github.com/user-attachments/assets/d8687cd2-d272-4e9b-a78e-17cc81e7b272" />
-)
-
+<img width="1533" height="838" alt="image" src="https://github.com/user-attachments/assets/a138615c-21d7-4955-af3a-7902c7f81f9a" />
+<img width="1635" height="820" alt="image" src="https://github.com/user-attachments/assets/b6f40c80-c97d-4696-ae39-008560a32656" />
+<img width="1622" height="848" alt="image" src="https://github.com/user-attachments/assets/2c99bf18-edd8-4f07-a974-200f65ef09de" />
+<img width="636" height="773" alt="image" src="https://github.com/user-attachments/assets/d8687cd2-d272-4e9b-a78e-17cc81e7b272" />
 
 ---
 
