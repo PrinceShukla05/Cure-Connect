@@ -3,6 +3,7 @@ import { AppContext } from '../context/AppContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Login = () => {
   const {backendUrl,token,setToken} = useContext(AppContext)
@@ -54,7 +55,11 @@ const Login = () => {
   return (
     <form onSubmit={onSubmitHandler} className='min-h-[80vh] flex items-center'>
       <div className='flex flex-col gap-3 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg'>
-        <p className='text-2xl font-semibold'>{state==='Sign Up'? "Create Account":"Login"}</p>
+        <div className='flex flex-row items-center gap-10'>
+          <p className='text-2xl font-semibold'>{state==='Sign Up'? "Create Account":"Login"}</p>
+          <a href='https://cureconnect-admin.vercel.app/' className='text-sm text-red-500 underline hover:font-semibold cursor-pointer'>Sign in as Doctor</a>
+          {/* <NavLink to="/admin" className='text-sm text-red-500 underline hover:font-semibold cursor-pointer'>Sign in as Doctor</NavLink> */}
+        </div>
         <p>Please {state==='Sign Up'?"Sign Up":"Log In"} to book appointment</p>
         {
           state==="Sign Up" && <div className='w-full'>
