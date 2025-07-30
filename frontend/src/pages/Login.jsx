@@ -16,7 +16,9 @@ const Login = () => {
   const onSubmitHandler=async (event)=>{
     event.preventDefault()
     try {
+      //console.log("Login frontend page ",state)
       if(state==='Sign Up'){
+        console.log("Login frontend page ",state)
         const {data}= await axios.post(backendUrl+ '/api/user/register',{name,password,email})
         if(data.success){
           console.log(data.token)

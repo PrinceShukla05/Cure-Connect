@@ -10,4 +10,3 @@ const storage=multer.diskStorage({
 const upload =multer({storage})
 
 export default upload
-// study what does this

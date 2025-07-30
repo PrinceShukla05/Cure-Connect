@@ -11,6 +11,7 @@ import razorpay from 'razorpay'
 
 const registerUser = async(req , res)=>{
     try {
+        
         const {name,email,password}=req.body
 
         if(!name || !password || !email){
@@ -20,14 +21,17 @@ const registerUser = async(req , res)=>{
         if(!validator.isEmail(email)){
             return res.json({success:false,message:"enter a valid email"})
         }
+        
 
         if(password.length<8){
             return res.json({success:false,message:"enter a strong password"})
         }
         const existingUser = await userModel.findOne({ email });
         if (existingUser) {
+            console.log("USER already Exists ")
             return res.status(400).json({ success: false, message: "User already exists" });
         }
+        
 
 
         // hashing user password
@@ -44,7 +48,7 @@ const registerUser = async(req , res)=>{
         const user = await newUser.save()
 
         //to create the token
-        const token=jwt.sign({id:user._id},process.env.JWT_SECRET)
+        const token=jwt.sign({id:user._id},process.env.JWT_SECRET,{ expiresIn: '24h' })
         res.json({success:true,token})
 
 
