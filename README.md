@@ -110,5 +110,6 @@ backend: Create a .env file in the backend directory and add your MongoDB URI an
 If you'd like to contribute to this project, feel free to fork the repository, create a feature branch, and submit a pull request.
 
 ## Contact
-- Om Shukla: omshukla2403@gmail.com
-- Arshad Ali: 969673arshadali@gmail.com
+- Prince Shukla: prince161744@gmail.com
+- Priyal Singh: priyalsingh312@gmail.com
+# Cure-Connect
