@@ -56,7 +56,7 @@ Here's a demo video showing the functionality of the Civic Engagement Portal:
 
 ### 1. Clone the repository:
 ```bash
-git clone https://github.com/Omsh24/CureConnect-A-medical-appointment-website.git
+git clone https://github.com/PrinceShukla05/Cure-Connect.git
 
 ```
 ### 2. Install dependencies
